@@ -82,6 +82,29 @@
 
       const title = <h1>1번째 고양이 가라사대</h1>;
 
+      function sayHello(name) {
+        return "안녕 " + name;
+      }
+
+      sayHello('승덕');
+      sayHello('여러분');
+
+      function Card(title, description) {
+        return (
+          <div>
+            <h2>{title}</h2>
+            <p>{description}</p>
+          </div>
+        );
+      }
+
+      Card("리액트 짱", "리액트 입니다.");
+
+      // 리액트는 태그를 쓰는것처럼 함수 사용 가능!!
+      <Card title="리액트 짱" description="리액트 입니다." />;
+      
+
+
       const app = (
         <div>
           {title}
