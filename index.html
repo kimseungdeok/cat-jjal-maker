@@ -22,9 +22,7 @@
       flex-wrap: wrap;
       gap: 15px;
     }
-    .favorites img {
-      width: 150px;
-    }
+
   </style>
   <body>
     <div id="app"></div>
@@ -54,7 +52,7 @@
         console.log(props);
         return (
           <li>
-            <img src={props.img}/>
+            <img src={props.img} style={{width: "150px"}}/>
           </li>
         );
       }
@@ -63,7 +61,7 @@
 
       function Favorites() {
         return (
-          <ul class="favorites">
+          <ul className="favorites">
             <CatItem img="https://cataas.com/cat/BxqL2EjFmtxDkAm2/says/inflearn"/>
             <CatItem img="https://cataas.com/cat/18MD6byVC1yKGpXp/says/JavaScript"/>
           </ul>
@@ -73,7 +71,7 @@
 
       const MainCard = ({img}) => {
         return (
-          <div class="main-card">
+          <div className="main-card">
             <img
               src={img}
               alt="고양이"
