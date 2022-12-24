@@ -41,36 +41,53 @@
     <script type="text/babel">
       console.log("야옹");
 
-      const catItem = (
-        <li>
-          <img
-            src="https://cataas.com/cat/HSENVDU4ZMqy7KQ0/says/react"
-            alt="고양이"
-          />
-        </li>
-      );
+      // const catItem = (
+      //   <li>
+      //     <img
+      //       src="https://cataas.com/cat/HSENVDU4ZMqy7KQ0/says/react"
+      //       alt="고양이"
+      //     />
+      //   </li>
+      // );
 
-      const favorites = (
-        <ul class="favorites">
-          {catItem}
-          {catItem}
-          {catItem}
-        </ul>
-      );
+      function CatItem(props) {
+        console.log(props);
+        return (
+          <li>
+            <img src={props.img}/>
+          </li>
+        );
+      }
 
-      const mainCard = (
-        <div class="main-card">
-          <img
-            src="https://cataas.com/cat/HSENVDU4ZMqy7KQ0/says/react"
-            alt="고양이"
-            width="400"
-          />
-          <button>🤍</button>
-        </div>
-      );
 
-      const formItem = (
-        <form>
+
+      function Favorites() {
+        return (
+          <ul class="favorites">
+            <CatItem img="https://cataas.com/cat/BxqL2EjFmtxDkAm2/says/inflearn"/>
+            <CatItem img="https://cataas.com/cat/18MD6byVC1yKGpXp/says/JavaScript"/>
+          </ul>
+        );
+      }
+
+
+      const MainCard = ({img}) => {
+        return (
+          <div class="main-card">
+            <img
+              src={img}
+              alt="고양이"
+              width="400"
+            />
+            <button>🤍</button>
+          </div>
+        );
+      };
+
+
+      const FormItem = () => {
+        return (
+          <form>
           <input
             type="text"
             name="name"
@@ -78,39 +95,22 @@
           />
           <button type="submit">생성</button>
         </form>
-      );
-
-      const title = <h1>1번째 고양이 가라사대</h1>;
-
-      function sayHello(name) {
-        return "안녕 " + name;
-      }
-
-      sayHello('승덕');
-      sayHello('여러분');
-
-      function Card(title, description) {
-        return (
-          <div>
-            <h2>{title}</h2>
-            <p>{description}</p>
-          </div>
         );
-      }
+      };
 
-      Card("리액트 짱", "리액트 입니다.");
-
-      // 리액트는 태그를 쓰는것처럼 함수 사용 가능!!
-      <Card title="리액트 짱" description="리액트 입니다." />;
       
-
+      const Title = (props) => {
+        console.log(props);
+        return <h1>{props.children}</h1>;
+      };
 
       const app = (
         <div>
-          {title}
-          {formItem}
-          {mainCard}
-          {favorites}
+          <Title>1번째 고양이 가라사대</Title>
+          <Title>2번째 고양이 가라사대</Title>
+          <FormItem />
+          <MainCard img = "https://cataas.com/cat/HSENVDU4ZMqy7KQ0/says/react"/>
+          <Favorites />
         </div>
       );
 
