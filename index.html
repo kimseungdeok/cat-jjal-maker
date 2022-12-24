@@ -28,41 +28,15 @@
   </style>
   <body>
     <div id="app"></div>
-    <!-- <h1>1번째 고양이 가라사대</h1>
-    <form>
-      <input type="text" name="name" placeholder="영어 대사를 입력해주세요" />
-      <button type="submit">생성</button>
-    </form>
-    <div class="main-card">
-      <img
-        src="https://cataas.com/cat/HSENVDU4ZMqy7KQ0/says/react"
-        alt="고양이"
-        width="400"
-      />
-      <button>🤍</button>
-    </div>
-    <ul class="favorites">
-      <li>
-        <img
-          src="https://cataas.com/cat/HSENVDU4ZMqy7KQ0/says/react"
-          alt="고양이"
-        />
-      </li>
-      <li>
-        <img
-          src="https://cataas.com/cat/HSENVDU4ZMqy7KQ0/says/react"
-          alt="고양이"
-        />
-      </li>
-      <li>
-        <img
-          src="https://cataas.com/cat/HSENVDU4ZMqy7KQ0/says/react"
-          alt="고양이"
-        />
-      </li>
-    </ul> -->
-    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script type="text/babel">
       console.log("야옹");
@@ -76,9 +50,50 @@
         </li>
       );
 
+      const favorites = (
+        <ul class="favorites">
+          {catItem}
+          {catItem}
+          {catItem}
+        </ul>
+      );
+
+      const mainCard = (
+        <div class="main-card">
+          <img
+            src="https://cataas.com/cat/HSENVDU4ZMqy7KQ0/says/react"
+            alt="고양이"
+            width="400"
+          />
+          <button>🤍</button>
+        </div>
+      );
+
+      const formItem = (
+        <form>
+          <input
+            type="text"
+            name="name"
+            placeholder="영어 대사를 입력해주세요"
+          />
+          <button type="submit">생성</button>
+        </form>
+      );
+
+      const title = <h1>1번째 고양이 가라사대</h1>;
+
+      const app = (
+        <div>
+          {title}
+          {formItem}
+          {mainCard}
+          {favorites}
+        </div>
+      );
+
       const 여기다가그려 = document.querySelector("#app");
-      
-      ReactDOM.render(catItem, 여기다가그려); // 여기다가그려에 catItem을 그려라
+
+      ReactDOM.render(app, 여기다가그려); // 여기다가그려에 catItem을 그려라
 
       // // 1. 좋아요 버튼 찾기
       // const likeButton = document.querySelector(".main-card button");
@@ -92,7 +107,7 @@
       //   const favorites = document.querySelector(".favorites");
       //   // 5. 새로운 고양이 사진 만들기
       //   const newFavoriteImage = document.createElement("img");
-      //   newFavoriteImage.src = 
+      //   newFavoriteImage.src =
       //   "https://cataas.com/cat/HSENVDU4ZMqy7KQ0/says/react";
       //   // 6. 고양이 사진을 감싸는 li 만들기
       //   const li = document.createElement("li");
