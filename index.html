@@ -90,9 +90,13 @@
 
 
       const FormItem = () => {
+        const [counter, setCounter] = React.useState(1); // useState의 초기값을 인자로 넣음, 배열을 반환
+      
+        console.log("카운터", counter);
         function handleFormSubmit (event){
           event.preventDefault();
           console.log("폼 제출");
+          setCounter(counter + 1);
         }
 
         return (
@@ -116,7 +120,6 @@
       const app = (
         <div>
           <Title>1번째 고양이 가라사대</Title>
-          <Title>2번째 고양이 가라사대</Title>
           <FormItem />
           <MainCard img = "https://cataas.com/cat/HSENVDU4ZMqy7KQ0/says/react"/>
           <Favorites />
