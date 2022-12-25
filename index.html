@@ -48,10 +48,16 @@
       }
 
       function Favorites() {
+        const CAT1 = "https://cataas.com/cat/HSENVDU4ZMqy7KQ0/says/react";
+        const CAT2 = "https://cataas.com/cat/BxqL2EjFmtxDkAm2/says/inflearn";
+        const CAT3 = "https://cataas.com/cat/18MD6byVC1yKGpXp/says/JavaScript";
+
+        const cats = [CAT1, CAT2];
         return (
           <ul className="favorites">
-            <CatItem img="https://cataas.com/cat/BxqL2EjFmtxDkAm2/says/inflearn" />
-            <CatItem img="https://cataas.com/cat/18MD6byVC1yKGpXp/says/JavaScript" />
+            {cats.map((cat) => (
+              <CatItem img={cat} key={cat}/>
+            ))}
           </ul>
         );
       }
@@ -123,7 +129,6 @@
       const 여기다가그려 = document.querySelector("#app");
 
       ReactDOM.render(<App />, 여기다가그려); // 여기다가그려에 catItem을 그려라
-
     </script>
   </body>
 </html>
