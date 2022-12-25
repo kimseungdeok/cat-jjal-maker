@@ -22,7 +22,6 @@
       flex-wrap: wrap;
       gap: 15px;
     }
-
   </style>
   <body>
     <div id="app"></div>
@@ -52,24 +51,21 @@
         console.log(props);
         return (
           <li>
-            <img src={props.img} style={{width: "150px"}}/>
+            <img src={props.img} style={{ width: "150px" }} />
           </li>
         );
       }
 
-
-
       function Favorites() {
         return (
           <ul className="favorites">
-            <CatItem img="https://cataas.com/cat/BxqL2EjFmtxDkAm2/says/inflearn"/>
-            <CatItem img="https://cataas.com/cat/18MD6byVC1yKGpXp/says/JavaScript"/>
+            <CatItem img="https://cataas.com/cat/BxqL2EjFmtxDkAm2/says/inflearn" />
+            <CatItem img="https://cataas.com/cat/18MD6byVC1yKGpXp/says/JavaScript" />
           </ul>
         );
       }
 
-
-      const MainCard = ({img}) => {
+      const MainCard = ({ img }) => {
         function handleHeartClick() {
           console.log("하트 클릭");
         }
@@ -78,57 +74,59 @@
         }
         return (
           <div className="main-card">
-            <img
-              src={img}
-              alt="고양이"
-              width="400"
-            />
-            <button onClick={handleHeartClick} onMouseOver={handleHeartMouseOver}>🤍</button>
+            <img src={img} alt="고양이" width="400" />
+            <button
+              onClick={handleHeartClick}
+              onMouseOver={handleHeartMouseOver}
+            >
+              🤍
+            </button>
           </div>
         );
       };
 
+      const FormItem = ({ handleFormSubmit }) => {
+        return (
+          <form onSubmit={handleFormSubmit}>
+            <input
+              type="text"
+              name="name"
+              placeholder="영어 대사를 입력해주세요"
+            />
+            <button type="submit">생성</button>
+          </form>
+        );
+      };
 
-      const FormItem = () => {
+      const Title = (props) => {
+        console.log(props);
+        return <h1>{props.children}</h1>;
+      };
+
+      const App = () => {
         const [counter, setCounter] = React.useState(1); // useState의 초기값을 인자로 넣음, 배열을 반환
-      
+
         console.log("카운터", counter);
-        function handleFormSubmit (event){
+
+        function handleFormSubmit(event) {
           event.preventDefault();
           console.log("폼 제출");
           setCounter(counter + 1);
         }
 
         return (
-          <form onSubmit={handleFormSubmit}>
-          <input
-            type="text"
-            name="name"
-            placeholder="영어 대사를 입력해주세요"
-          />
-          <button type="submit">생성</button>
-        </form>
+          <div>
+            <Title>{counter}번째 고양이 가라사대</Title>
+            <FormItem handleFormSubmit={handleFormSubmit} />
+            <MainCard img="https://cataas.com/cat/HSENVDU4ZMqy7KQ0/says/react" />
+            <Favorites />
+          </div>
         );
       };
 
-      
-      const Title = (props) => {
-        console.log(props);
-        return <h1>{props.children}</h1>;
-      };
-
-      const app = (
-        <div>
-          <Title>1번째 고양이 가라사대</Title>
-          <FormItem />
-          <MainCard img = "https://cataas.com/cat/HSENVDU4ZMqy7KQ0/says/react"/>
-          <Favorites />
-        </div>
-      );
-
       const 여기다가그려 = document.querySelector("#app");
 
-      ReactDOM.render(app, 여기다가그려); // 여기다가그려에 catItem을 그려라
+      ReactDOM.render(<App />, 여기다가그려); // 여기다가그려에 catItem을 그려라
 
       // // 1. 좋아요 버튼 찾기
       // const likeButton = document.querySelector(".main-card button");
