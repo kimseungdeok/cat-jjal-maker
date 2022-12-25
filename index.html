@@ -105,20 +105,22 @@
 
       const App = () => {
         const [counter, setCounter] = React.useState(1); // useState의 초기값을 인자로 넣음, 배열을 반환
-
+        const [mainCatImage, setCatImage] = React.useState("https://cataas.com/cat/HSENVDU4ZMqy7KQ0/says/react"); // useState의 초기값을 인자로 넣음, 배열을 반환
         console.log("카운터", counter);
 
         function handleFormSubmit(event) {
           event.preventDefault();
           console.log("폼 제출");
           setCounter(counter + 1);
+          setCatImage("https://cataas.com/cat/BxqL2EjFmtxDkAm2/says/inflearn");
         }
+
 
         return (
           <div>
             <Title>{counter}번째 고양이 가라사대</Title>
             <FormItem handleFormSubmit={handleFormSubmit} />
-            <MainCard img="https://cataas.com/cat/HSENVDU4ZMqy7KQ0/says/react" />
+            <MainCard handleFormSubmit={handleFormSubmit} />
             <Favorites />
           </div>
         );
