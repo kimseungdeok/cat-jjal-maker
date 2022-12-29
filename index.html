@@ -175,9 +175,11 @@
           jsonLocalStorage.setItem("favorites", nextFavorites);
         }
 
+        const counterTitle = counter === null ? "" : counter + "번째 ";
+
         return (
           <div>
-            <Title>{counter}번째 고양이 가라사대</Title>
+            <Title>{counterTitle}고양이 가라사대</Title>
             <FormItem updateMainCat={updateMainCat} />
             <MainCard
               img={mainCatImage}
