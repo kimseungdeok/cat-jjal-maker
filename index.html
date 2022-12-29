@@ -144,6 +144,17 @@
           jsonLocalStorage.getItem("favorites") || []
         );
 
+        async function setInitialCat() {
+          const newCat = await fetchCat("First Cat");
+          setCatImage(newCat);
+        }
+
+        React.useEffect(() => {
+          setInitialCat();
+        }, []); // 빈 배열을 넣어주면 처음에만 실행됨
+
+        // setInitialCat();
+
         async function updateMainCat(value) {
           const newCat = await fetchCat(value);
           setCatImage(newCat);
