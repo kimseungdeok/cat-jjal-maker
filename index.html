@@ -71,12 +71,20 @@
       };
 
       const FormItem = ({ handleFormSubmit }) => {
+        const [value, setValue] = React.useState("");
+
+        function handleInputChange(event) {
+          console.log(event.target.value.toUpperCase());
+          setValue(event.target.value.toUpperCase());
+        }
         return (
           <form onSubmit={handleFormSubmit}>
             <input
               type="text"
               name="name"
               placeholder="영어 대사를 입력해주세요"
+              value={value}
+              onChange={handleInputChange}
             />
             <button type="submit">생성</button>
           </form>
